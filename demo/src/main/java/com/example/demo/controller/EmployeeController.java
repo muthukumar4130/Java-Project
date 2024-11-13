@@ -9,6 +9,7 @@ import com.example.demo.utils.CommonUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class EmployeeController {
     @Autowired
     private CommonUtil commonUtil;
 
-    @Operation(summary = "API to save employee details.", description = "Save employee details based on request data")
+    @Operation(summary = "API to save employee details.", description = "Save employee details based on request data" ,security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully store employee details."),
             @ApiResponse(responseCode = "500", description = "Service temporarily unavailable.")
